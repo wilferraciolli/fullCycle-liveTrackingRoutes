@@ -37,8 +37,28 @@ Google maps are used to query places, calculate routes and display
 `npm i @googlemaps/google-maps-services-js` 
 Google maps will need the following API and Services enabled
 * Places API
-* other???
+* Directions API
 
 ### Config - used to inject environment variable 
 Used to inject environment variables Eg Google maps api
 `npm install @nestjs/config`
+Usage, within the main module, import and set it to be used globally, then to be used within the app, inject the ConfigService and do a get
+```typescript
+    @Module({
+    imports: [
+    // add config module from nestjs to be able to inject environment variables
+        ConfigModule.forRoot({
+        isGlobal: true
+    }),
+      MapsModule
+    ],
+    controllers: [AppController],
+    providers: [AppService],
+    })
+export class AppModule {}
+
+...
+this.configService.get<string>('GOOGLE_MAPS_API_KEY')
+  
+
+```
