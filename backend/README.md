@@ -14,5 +14,25 @@ run the command `nest new nestjs-api` and chose the `npm` as the package manager
 This will create a node project with a package .json
 
 ### Running the app
-run `npm run start:dev` to spin the server, this should create a dummy hello world endpoint on the address `localhost:300`
+run `npm run start:dev` to spin the server, this should create a dummy hello world endpoint on the address 
+[http://localhost:300](localhost:300)
 ![3-server-run.png](images/3-server-run.png)
+
+## Nest JS CLI commands
+### Creating Modules
+run `nest g module <moduleName>` to create a new module, this will create an empty module and add it as imports within the main module
+
+### Creating controller
+run `nest g controller <moduleName/controllerName>`
+
+
+## Testing within the IDE
+Creating a file called `fileName.http` will allow the ide to create a local http client and perform requests
+![4-test-http-client.png](images/4-test-http-client.png)
+
+
+# Dependencies
+### Google maps
+Google maps are used to query places, calculate routes and display
+`npm i @googlemaps/google-maps-services-js` 
+
