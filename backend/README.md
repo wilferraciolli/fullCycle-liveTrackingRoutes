@@ -35,4 +35,10 @@ Creating a file called `fileName.http` will allow the ide to create a local http
 ### Google maps
 Google maps are used to query places, calculate routes and display
 `npm i @googlemaps/google-maps-services-js` 
+Google maps will need the following API and Services enabled
+* Places API
+* other???
 
+### Config - used to inject environment variable 
+Used to inject environment variables Eg Google maps api
+`npm install @nestjs/config`
