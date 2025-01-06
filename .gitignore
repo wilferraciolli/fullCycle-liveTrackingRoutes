@@ -15,7 +15,7 @@
 *.war
 *.nar
 *.ear
-*.zip
+#*.zip
 *.tar.gz
 *.rar
 
@@ -27,3 +27,5 @@ replay_pid*
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/workspace.xml
