@@ -1,0 +1,30 @@
+### Get source place
+GET http://localhost:3000/places?text=8 bellapais, pera chorio, dali, cyprus
+
+### Get destination place
+GET http://localhost:3000/places?text=nicosia, cyprus
+
+###
+@originId = EjNCZWxsYXBhaXMgOCwgzqDOrc-BzrEgzqfPic-BzrnPjCAyNTcyLCDOms-Nz4DPgc6_z4IiMBIuChQKEgnHg5S7yx_eFBH4jWeVe_sjehAIKhQKEgln07aWyx_eFBEb_59j28xG5Q
+@destinationId = ChIJVU1JymcX3hQRpcARA5ykXls
+
+
+### Request directions
+GET http://localhost:3000/directions?originId={{originId}}&destinationId={{destinationId}}
+
+
+### Create route
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+  "name": "rota 1",
+  "source_id": "{{originId}}",
+  "destination_id": "{{destinationId}}"
+}
+
+### get all routes
+GET http://localhost:3000/routes
+
+### get single route
+GET http://localhost:3000/routes/67655300771589ac83a8d5b8
