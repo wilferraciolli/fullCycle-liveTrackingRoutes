@@ -14,13 +14,72 @@ only additional JS will be added in case the page needs to.
 run `npx create-next-app@latest nestjs-ui` to create this project
 
 # Running the app
-`npm run dev` - default is port 300 but it can be changeg
+`PORT=3001 npm run dev` - default is port 3000 but it gets changed to 3001 with the run script
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+# Dependencies
+### Google maps services api and loader
+run `npm install @googlemaps/google-maps-services-js @googlemaps/js-api-loader`
+and for the types run `npm install @types/google.maps --save-dev`
+Google maps will need the following API and Services enabled
+* Maps javascript API
+* Others needed for the API to display map, check api project
+
+### Lodash
+used as a util class to manipulate objects
+run `npm install lodash` and for the types run `npm i --save-dev @types/lodash`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Learn More
 
