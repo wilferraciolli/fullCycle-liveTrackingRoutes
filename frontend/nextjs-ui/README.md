@@ -2,10 +2,11 @@
 This project will be used to be the front end of the routing track, it uses NextJS framework, with React and tailwind.
 It will be mainly SSR.
 this also will need to integrate with Google APIs to display the map to the user.
+To install NextJS  run the following script `npm install next@latest -g`
 ![1-overview.png](../images/1-overview.png)
 
 # Next Js and SSR
-The idea is to have server side rended pages rather than a traditional SPA. the server will render the page and send the page to the user
+The idea is to have server side rendered pages rather than a traditional SPA. the server will render the page and send the page to the user
 only additional JS will be added in case the page needs to.
 ![2-next-js-architecture.png](../images/2-next-js-architecture.png)
 
@@ -16,10 +17,15 @@ run `npx create-next-app@latest nestjs-ui` to create this project
 # Running the app
 `PORT=3001 npm run dev` - default is port 3000 but it gets changed to 3001 with the run script
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Open [http://localhost:3001/new-route](http://localhost:3001/new-route) with your browser to see the result.
 
 
 # Dependencies
+### next JS
+run `npm install next@latest -g` this will install the framework globally, not needed to the app itself but necessary to run the app
+
+
 ### Google maps services api and loader
 run `npm install @googlemaps/google-maps-services-js @googlemaps/js-api-loader`
 and for the types run `npm install @types/google.maps --save-dev`
