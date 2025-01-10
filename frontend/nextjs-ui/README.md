@@ -17,8 +17,10 @@ run `npx create-next-app@latest nestjs-ui` to create this project
 # Running the app
 `PORT=3001 npm run dev` - default is port 3000 but it gets changed to 3001 with the run script
 
-
+# Routes
 Open [http://localhost:3001/new-route](http://localhost:3001/new-route) with your browser to see the result.
+Open [http://localhost:3001/new-route](http://localhost:3001/driver) with your browser to see the result.
+Open [http://localhost:3001/new-route](http://localhost:3001/admin) with your browser to see the result.
 
 
 # Dependencies

@@ -24,7 +24,8 @@ if an image already exists, then it uses the current image, otherwise make sure 
 alternativetely, you can pass the --build flag force the build to happen rather than using the current image Eg `docker-compose up --build`
 
 once docker compose is up, then on the terminal type in `docker compose exec app bash` this will allow you to see what the content of the service called `app` is
-very useful to check the content of what the container has, simply type `ls` on the container bash session and it will display its content or manually starting the app eg `npm `
+very useful to check the content of what the container has, simply type `ls` on the container bash session and it will display its content or manually starting the app eg `npm run start:dev`
+
 ![5-conatiner-bash.png](../images/5-conatiner-bash.png)
 
 ## Nest JS CLI commands
