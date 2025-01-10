@@ -24,7 +24,8 @@ if an image already exists, then it uses the current image, otherwise make sure 
 alternativetely, you can pass the --build flag force the build to happen rather than using the current image Eg `docker-compose up --build`
 
 once docker compose is up, then on the terminal type in `docker compose exec app bash` this will allow you to see what the content of the service called `app` is
-very useful to check the content of what the container has, simply type `ls` on the container bash session and it will display its content or manually starting the app eg `npm run start:dev`
+very useful to check the content of what the container has, simply type `ls` on the container bash session and it will display its content or 
+manually starting the app eg `npm run start:dev`
 
 ![5-conatiner-bash.png](../images/5-conatiner-bash.png)
 
@@ -41,6 +42,9 @@ run `nest g service <moduleName/serviceName>`
 ### Creating CRUD resources
 run `nest g resource`
 
+### Creating gateway (websockets)
+run `nest g gateway routes/routes-driver`
+
 ## Testing within the IDE
 Creating a file called `fileName.http` will allow the ide to create a local http client and perform requests
 ![4-test-http-client.png](../images/4-test-http-client.png)
@@ -54,6 +58,13 @@ Google maps will need the following API and Services enabled
 * Places API
 * Directions API
 * Others needed for the UI to display map, check ui project
+
+### Socket IO
+Sockets will be used between GoLang, Kafka, API and UI
+`npm install @nestjs/websockets @nestjs/platform-socket.io`
+
+to connect to the websocket use the following end point
+`ws://localhost:3000`
 
 ### Prisma ORM
 Used to map ts classes onto database tables and vice vers
