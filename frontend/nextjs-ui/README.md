@@ -27,6 +27,8 @@ Open [http://localhost:3001/new-route](http://localhost:3001/admin) with your br
 ### next JS
 run `npm install next@latest -g` this will install the framework globally, not needed to the app itself but necessary to run the app
 
+### Websocket io
+`npm install socket.io-client`
 
 ### Google maps services api and loader
 run `npm install @googlemaps/google-maps-services-js @googlemaps/js-api-loader`
