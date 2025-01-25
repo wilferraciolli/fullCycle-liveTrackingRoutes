@@ -19,8 +19,8 @@ run `npx create-next-app@latest nestjs-ui` to create this project
 
 # Routes
 Open [http://localhost:3001/new-route](http://localhost:3001/new-route) with your browser to see the result.
-Open [http://localhost:3001/new-route](http://localhost:3001/driver) with your browser to see the result.
-Open [http://localhost:3001/new-route](http://localhost:3001/admin) with your browser to see the result.
+Open [http://localhost:3001/driver](http://localhost:3001/driver) with your browser to see the result.
+Open [http://localhost:3001/admin](http://localhost:3001/admin) with your browser to see the result.
 
 
 # Dependencies
