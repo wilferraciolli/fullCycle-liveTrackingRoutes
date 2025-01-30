@@ -1,6 +1,6 @@
 # Simulator - GoLang
 
-used to simulate the cars moving around the map.
+used to simulate the cars moving around the map. The main usage for this service is to handle and publish events Eg carMoved, routeCreated...
 Microservice built using the Go language.
 
 # Prerequisites
@@ -18,5 +18,10 @@ this will create the initial module pointing to the github and the version of GO
 
 # Running the main funcion
 on the command line, type in `go run cmd/simulator/main.go`
+
+# Downloading dependencies
+Ont he commnad line, type in `go mod tidy` as seen image below
+
+![Install dependencies.png](../images/image2-installDependencies.png)
 
 
