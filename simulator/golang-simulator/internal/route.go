@@ -32,7 +32,7 @@ type RouteService struct {
 	freightService *FreightService
 }
 
-func (rs *RouteService) createRoute(route Route) (Route, error) {
+func (rs *RouteService) CreateRoute(route Route) (Route, error) {
 	route.FreightPrice = rs.freightService.calculate(route.Distance)
 
 	update := bson.M{
@@ -52,6 +52,18 @@ func (rs *RouteService) createRoute(route Route) (Route, error) {
 	}
 
 	return route, err
+}
+
+func (rs *RouteService) GetRoute(id string) (Route, error) {
+	var route Route
+	filter := bson.M{"_id": id}
+	err := rs.mongo.Database("routes").Collection("routes").FindOne(nil, filter).Decode(&route)
+
+	if err != nil {
+		return Route{}, err
+	}
+
+	return route, nil
 }
 
 // TODO stoped lesson 4 at 45 minutes
