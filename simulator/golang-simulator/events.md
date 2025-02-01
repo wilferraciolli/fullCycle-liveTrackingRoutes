@@ -16,7 +16,7 @@ FreightCalculated
 - ammount
 
 ---
-
+# Receive event
 DeliveryStarted
 - route_id
 
