@@ -32,13 +32,13 @@ func NewFreightCalculatedEvent(routeId string, amount float64) *FreightCaculated
 	}
 }
 
-type DeiveryStartedEvent struct {
+type DeliveryStartedEvent struct {
 	EventName string `json:"event"`
 	RouteID   string `json:"route_id"`
 }
 
-func NewDeliveryStartedEvent(routeID string) *DeiveryStartedEvent {
-	return &DeiveryStartedEvent{
+func NewDeliveryStartedEvent(routeID string) *DeliveryStartedEvent {
+	return &DeliveryStartedEvent{
 		EventName: "DeliveryStarted",
 		RouteID:   routeID,
 	}

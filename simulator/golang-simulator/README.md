@@ -25,3 +25,7 @@ Ont he commnad line, type in `go mod tidy` as seen image below
 ![Install dependencies.png](../images/image2-installDependencies.png)
 
 
+# Dependencies
+### Apache Kafka GO
+Used to publish and receive message within Kafka
+`github.com/segmentio/kafka-go`
