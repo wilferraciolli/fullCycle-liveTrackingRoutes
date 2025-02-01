@@ -25,8 +25,11 @@ func main() {
 	routeCreatedEvent := internal.NewRouteCreatedEvent(
 		"1",
 		100,
-		[]internal.Directions{{Lat: 1, Lng: 1}})
+		[]internal.Directions{
+			{Lat: 1.0, Lng: 1.0},
+			{Lat: 2.0, Lng: 2.0},
+			{Lat: 3.0, Lng: 3.0},
+		})
 
 	fmt.Println(internal.RouteCreatedHandler(routeCreatedEvent, routeService))
-	// TODO stoped at 1:19 minutes
 }
