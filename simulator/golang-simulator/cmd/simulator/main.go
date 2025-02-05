@@ -60,15 +60,10 @@ func main() {
 
 		// create a go routine for new thread so it wont block it
 		go func(msg []byte) {
-			err = hub.HandleEvent(msg)
+			err = hub.HandleEvent(m.Value)
 			if err != nil {
 				log.Printf("error handling event: %w, err")
 			}
 		}(m.Value)
-
-		err = hub.HandleEvent(m.Value)
-		if err != nil {
-			log.Printf("error handling event: %w, err")
-		}
 	}
 }

@@ -72,7 +72,7 @@ func RouteCreatedHandler(event *RouteCreatedEvent, routeService *RouteService) (
 	return FreightCaculatedEvent, nil
 }
 
-func DeliveryStartedHandler(event *DeiveryStartedEvent, routeService *RouteService, ch chan *DriverMovedEvent) error {
+func DeliveryStartedHandler(event *DeliveryStartedEvent, routeService *RouteService, ch chan *DriverMovedEvent) error {
 	route, err := routeService.GetRoute(event.RouteID)
 	if err != nil {
 		return err
