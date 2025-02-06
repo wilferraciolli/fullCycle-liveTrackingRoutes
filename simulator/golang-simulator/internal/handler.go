@@ -18,14 +18,14 @@ func NewRouteCreatedEvent(routeID string, distance int, directions []Directions)
 	}
 }
 
-type FreightCaculatedEvent struct {
+type FreightCalculatedEvent struct {
 	EventName string  `json:"event"`
 	RouteID   string  `json:"route_id"`
 	Amount    float64 `json:"amount"`
 }
 
-func NewFreightCalculatedEvent(routeId string, amount float64) *FreightCaculatedEvent {
-	return &FreightCaculatedEvent{
+func NewFreightCalculatedEvent(routeId string, amount float64) *FreightCalculatedEvent {
+	return &FreightCalculatedEvent{
 		EventName: "FreightCalculated",
 		RouteID:   routeId,
 		Amount:    amount,
@@ -60,19 +60,19 @@ func NewDriverMovedEvent(routeID string, lat, lng float64) *DriverMovedEvent {
 	}
 }
 
-func RouteCreatedHandler(event *RouteCreatedEvent, routeService *RouteService) (*FreightCaculatedEvent, error) {
+func RouteCreatedHandler(event *RouteCreatedEvent, routeService *RouteService) (*FreightCalculatedEvent, error) {
 	route := NewRoute(event.RouteID, event.Distance, event.Directions)
 	routeCreated, err := routeService.CreateRoute(route)
 	if err != nil {
 		return nil, err
 	}
 
-	FreightCaculatedEvent := NewFreightCalculatedEvent(routeCreated.ID, routeCreated.FreightPrice)
+	FreightCalculatedEvent := NewFreightCalculatedEvent(routeCreated.ID, routeCreated.FreightPrice)
 
-	return FreightCaculatedEvent, nil
+	return FreightCalculatedEvent, nil
 }
 
-func DeliveryStartedHandler(event *DeiveryStartedEvent, routeService *RouteService, ch chan *DriverMovedEvent) error {
+func DeliveryStartedHandler(event *DeliveryStartedEvent, routeService *RouteService, ch chan *DriverMovedEvent) error {
 	route, err := routeService.GetRoute(event.RouteID)
 	if err != nil {
 		return err
