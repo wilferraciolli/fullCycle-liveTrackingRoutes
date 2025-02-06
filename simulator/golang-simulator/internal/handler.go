@@ -79,16 +79,15 @@ func DeliveryStartedHandler(event *DeliveryStartedEvent, routeService *RouteServ
 	}
 
 	// start go routine for async values - used to stream lat anf lng
-	driverMovedEvent := NewDriverMovedEvent(route.ID, 0, 0)
-	for _, direction := range route.Directions {
-		driverMovedEvent.RouteID = route.ID
-		driverMovedEvent.Lat = direction.Lat
-		driverMovedEvent.Lng = direction.Lng
-		// add delay to simulate driver movement
-		time.Sleep(time.Second)
-		// create a channel to share the driverMovedEvent to avoid concurrency issues
-		ch <- driverMovedEvent
-	}
+	go func() {
+		for _, direction := range route.Directions {
+			dme := NewDriverMovedEvent(route.ID, direction.Lat, direction.Lng)
+			ch <- dme
+			// add delay to simulate driver movement
+			time.Sleep(time.Second)
+			// create a channel to share the driverMovedEvent to avoid concurrency issues
+		}
+	}()
 
 	return nil
 }

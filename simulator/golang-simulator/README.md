@@ -16,7 +16,7 @@ Then install the VsCode extensions to manage Go
 ### MongoDB explorer
 This is used to connect to the mongoDB running on a container for SQL queries. This is a VSCode plugin made by Mongo, it is the official SQL editor.
 ![Install MongoDB extension.png](../images/image3-mongoDBExtension.png)
-To connect with it, simply pass in the connection string defined within the main file `mongodb://admin:admin@localhost:27017/routes?authSource=admin` 
+To connect with it, simply pass in the connection string defined within the environment variables `mongodb://admin:admin@localhost:27017/routes?authSource=admin` 
 this will allow to query and see the data inserted onto the database.
 
 # Initialize Go project (Create initial module)
@@ -26,6 +26,15 @@ this will create the initial module pointing to the github and the version of GO
 
 # Running the main function
 on the command line, type in `go run cmd/simulator/main.go`
+
+
+# Running the main function within docker compose
+on the command line, do a `docker compose up -d` then withinthe console type in `docker compose exec -it simulator sh` this will get the 
+GoLang `simulator` container and open the bash within it. Finally then we can run the normal command to start the app `go run cmd/simulator/main.go`
+
+# Kafka Control Center (GUI)
+This is used to monitor the messages coming in and out of kafka, ideal for debuging.
+To access it, there is a container on `localhost:9021` which is connected to kafka to allow it
 
 # Downloading dependencies
 On the command line, type in `go mod tidy` as seen image below
@@ -37,3 +46,6 @@ On the command line, type in `go mod tidy` as seen image below
 ### Apache Kafka GO
 Used to publish and receive message within Kafka
 `github.com/segmentio/kafka-go`
+
+### Mongo DB
+Database `go.mongodb.org/mongo-driver`
