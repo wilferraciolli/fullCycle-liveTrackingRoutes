@@ -27,6 +27,12 @@ once docker compose is up, then on the terminal type in `docker compose exec app
 very useful to check the content of what the container has, simply type `ls` on the container bash session and it will display its content or 
 manually starting the app eg `npm run start:dev`
 
+
+### Running the second app - Kafka consumer
+Within this microservice, there is another app which is used to just handle kafka messages. 
+It is a new App which can be run by running the script within the src/cmd/kafka.cmd.ts folder
+then to run it type in `npm run start:dev -- --entryFile=cmd/kafka.cmd`
+
 ![5-conatiner-bash.png](../images/5-conatiner-bash.png)
 
 ## Nest JS CLI commands

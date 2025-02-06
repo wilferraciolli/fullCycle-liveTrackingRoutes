@@ -91,11 +91,15 @@ export class RoutesService {
     });
   }
 
-  update(id: number, updateRouteDto: UpdateRouteDto) {
-    return `This action updates a #${ id } route`;
+  update(id: string, updateRouteDto: UpdateRouteDto) {
+    return this.prismaService.route.update({
+      where: { id },
+      data: updateRouteDto
+    });
+
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${ id } route`;
   }
 }
