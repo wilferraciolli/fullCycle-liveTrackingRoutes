@@ -66,6 +66,10 @@ Sockets will be used between GoLang, Kafka, API and UI
 to connect to the websocket use the following end point
 `ws://localhost:3000`
 
+### Kafka client
+This is used to configure kafka client within the app 
+`npm install @nestjs/microservices @confluentinc/kafka-javascript`
+
 ### Prisma ORM
 Used to map ts classes onto database tables and vice vers
 `npm i @prisma/client`

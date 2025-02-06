@@ -1,14 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { DirectionsService } from '../maps/directions/directions.service';
 import { PrismaService } from '../prisma/prisma/prisma.service';
 import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
+import * as kafkaLib from '@confluentinc/kafka-javascript';
 
 @Injectable()
 export class RoutesService {
   constructor(
     private prismaService: PrismaService,
-    private directionsService: DirectionsService
+    private directionsService: DirectionsService,
+    @Inject('KAFKA_PRODUCER') private kafkaProducer: kafkaLib.KafkaJS.Producer
   ) {
   }
 
@@ -19,8 +21,7 @@ export class RoutesService {
     );
 
     const legs = routes[0].legs[0];
-
-    return this.prismaService.route.create({
+    const route = await this.prismaService.route.create({
       data: {
         name: createRouteDto.name,
         source: {
@@ -49,6 +50,35 @@ export class RoutesService {
         )
       }
     });
+
+    // after creating the route, then publish it
+    await this.kafkaProducer.send({
+      topic: 'route',
+      messages: [
+        {
+          value: JSON.stringify({
+            event: 'RouteCreated',
+            id: route.id,
+            distance: legs.distance.value,
+            directions: legs.steps.reduce((acc, step) => {
+              acc.push({
+                lat: step.start_location.lat,
+                lng: step.start_location.lng
+              });
+
+              acc.push({
+                lat: step.end_location.lat,
+                lng: step.end_location.lng
+              });
+
+              return acc;
+            }, [])
+          })
+        }
+      ]
+    });
+
+    return route;
   }
 
   findAll() {
