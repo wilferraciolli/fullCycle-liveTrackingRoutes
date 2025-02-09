@@ -23,6 +23,10 @@ Content-Type: application/json
   "destination_id": "{{destinationId}}"
 }
 
+### start route
+POST http://localhost:3000/routes/<routeID>/start
+Content-Type: application/json
+
 ### get all routes
 GET http://localhost:3000/routes
 

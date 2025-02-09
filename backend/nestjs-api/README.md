@@ -76,6 +76,10 @@ to connect to the websocket use the following end point
 This is used to configure kafka client within the app 
 `npm install @nestjs/microservices @confluentinc/kafka-javascript`
 
+### HTTP axios
+This module is used to make http calls
+`npm install @nestjs/axios`
+
 ### Prisma ORM
 Used to map ts classes onto database tables and vice vers
 `npm i @prisma/client`
